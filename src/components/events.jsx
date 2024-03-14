@@ -1,17 +1,29 @@
 import React, { useState } from 'react'
 
 function Events(){
-  const [isClick, setIsClick]=useState('Not clicked');
-  const handleClick=()=>{
-    console.log('Hovered');
-    setIsClick('Clicked');
+  const [name,setName]=useState('')
+
+  const handleSubmit=(event) =>{
+
   }
+  const handleChange=(event)=>{
+ 
+    if(event._reactName=== 'onChange'){
+      setName(event.target.value)
+    }
+    else{
+      console.log('clicked')
+    }
+  }
+
   return(
     <div>
-      <h1>{isClick}</h1>
-      <button onClick={handleClick}>Login</button>
+      <form >
+        <input type="text" onChange={handleChange} onClick={handleChange} value={name}/>
+        <button onSubmit={handleSubmit} >Submit</button> 
+      </form>
     </div>
   ) 
 }
-
+// onChange ,onSubmit
 export default Events
